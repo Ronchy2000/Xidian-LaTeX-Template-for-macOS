@@ -50,15 +50,44 @@ jobs:
           - [English Guide](https://github.com/Ronchy2000/Xidian-LaTeX-Template-for-macOS/blob/master/README_EN.md)
           EOF
 
-      - name: Upload Release Assets
+      - name: Create or Update Release
+        # 使用 softprops 仅负责创建 Release 或更新说明，不处理文件上传（避免 422 错误）
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            Xidian-LaTeX-Template-macOS.zip
-            Xidian-LaTeX-Template-Windows.zip
-          body_path: release_note_footer.md
-          append_body: true        # 关键：将固定说明追加到现有内容后面，而不是覆盖
-          generate_release_notes: true # 如果是命令行打tag，自动生成变更日志
+          # 不在此处上传文件
+          files: "" 
+          # 自动生成变更日志（如果 Release 说明为空）
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Assets (Robust)
+        # 使用 gh 命令行工具上传文件，支持覆盖（--clobber），解决 422 错误
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} Xidian-LaTeX-Template-macOS.zip Xidian-LaTeX-Template-Windows.zip --clobber
+
+      - name: Append Footer to Release Notes
+        # 智能追加固定说明（防止重复追加）
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 获取当前 Release 说明
+          CURRENT_BODY=$(gh release view ${{ github.ref_name }} --json body -q .body)
+          FOOTER_FILE="release_note_footer.md"
+          
+          # 检查是否已经包含固定内容的标记
+          if [[ "$CURRENT_BODY" == *"## 📥 下载与安装"* ]]; then
+            echo "Release notes already contain the footer. Skipping update."
+          else
+            echo "Appending footer to release notes..."
+            # 组合新内容：保留原有内容 + 换行 + 固定Footer
+            echo "$CURRENT_BODY" > full_notes.md
+            echo "" >> full_notes.md
+            cat $FOOTER_FILE >> full_notes.md
+            
+            # 更新 Release 说明
+            gh release edit ${{ github.ref_name }} --notes-file full_notes.md
+          fi
 
