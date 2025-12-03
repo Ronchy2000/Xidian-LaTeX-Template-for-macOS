@@ -50,25 +50,31 @@ jobs:
           - [English Guide](https://github.com/Ronchy2000/Xidian-LaTeX-Template-for-macOS/blob/master/README_EN.md)
           EOF
 
-      - name: Create or Update Release
-        # 使用 softprops 仅负责创建 Release 或更新说明，不处理文件上传（避免 422 错误）
-        uses: softprops/action-gh-release@v1
-        with:
-          # 设置 Release 标题格式：Xidian LaTeX Template v1.x
-          name: Xidian LaTeX Template ${{ github.ref_name }}
-          # 不在此处上传文件
-          files: "" 
-          # 自动生成变更日志（如果 Release 说明为空）
-          generate_release_notes: true
+      - name: Create or Update Release with gh CLI
+        # 使用 gh CLI 确保 Release 被正确创建
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 检查 Release 是否存在
+          if gh release view ${{ github.ref_name }} > /dev/null 2>&1; then
+            echo "Release ${{ github.ref_name }} already exists, will update it."
+          else
+            echo "Creating new release ${{ github.ref_name }}..."
+            gh release create ${{ github.ref_name }} \
+              --title "Xidian LaTeX Template ${{ github.ref_name }}" \
+              --notes "Release ${{ github.ref_name }}" \
+              --generate-notes
+          fi
 
-      - name: Upload Release Assets (Robust)
+      - name: Upload Release Assets
         # 使用 gh 命令行工具上传文件，支持覆盖（--clobber），解决 422 错误
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload ${{ github.ref_name }} Xidian-LaTeX-Template-macOS.zip Xidian-LaTeX-Template-Windows.zip --clobber
+          gh release upload ${{ github.ref_name }} \
+            Xidian-LaTeX-Template-macOS.zip \
+            Xidian-LaTeX-Template-Windows.zip \
+            --clobber
 
       - name: Append Footer to Release Notes
         # 智能追加固定说明（防止重复追加）
