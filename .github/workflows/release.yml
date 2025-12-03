@@ -7,7 +7,11 @@ on:
   # 监听 Tag 推送事件（命令行操作触发）
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'  # 只匹配 v1.0.0 这样的语义化版本标签
+      - 'v*.*'    # 也匹配 v1.0 这样的标签
+    # 明确排除普通分支推送
+    branches-ignore:
+      - '**'
 
 permissions:
   contents: write
