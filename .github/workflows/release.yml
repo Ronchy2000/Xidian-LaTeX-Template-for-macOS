@@ -1,6 +1,10 @@
 name: Release Template
 
 on:
+  # 监听 Release 发布事件（网页端操作触发）
+  release:
+    types: [published]
+  # 监听 Tag 推送事件（命令行操作触发）
   push:
     tags:
       - 'v*'
@@ -16,19 +20,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create macOS Package
+        # 排除 Git文件、Github配置、Windows说明
         run: |
           zip -r Xidian-LaTeX-Template-macOS.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "WINDOWS_README.md"
 
       - name: Create Windows Package
+        # 排除 Git文件、Github配置、macOS字体、MacTeX设置脚本
         run: |
           zip -r Xidian-LaTeX-Template-Windows.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "Font/*" -x "MacTex_Installation_Settings/*" -x "switch-texlive.sh"
 
-      - name: Create Release
+      - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
         with:
           files: |
             Xidian-LaTeX-Template-macOS.zip
             Xidian-LaTeX-Template-Windows.zip
-          draft: false
-          prerelease: false
-          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
