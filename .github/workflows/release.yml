@@ -61,7 +61,9 @@ jobs:
         run: |
           # 检查 Release 是否存在
           if gh release view ${{ github.ref_name }} > /dev/null 2>&1; then
-            echo "Release ${{ github.ref_name }} already exists, will update it."
+            echo "Release ${{ github.ref_name }} already exists, updating title..."
+            # 更新已存在的 Release 标题
+            gh release edit ${{ github.ref_name }} --title "Xidian LaTeX Template ${{ github.ref_name }}"
           else
             echo "Creating new release ${{ github.ref_name }}..."
             gh release create ${{ github.ref_name }} \
