@@ -1,0 +1,34 @@
+name: Release Template
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  package-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create macOS Package
+        run: |
+          zip -r Xidian-LaTeX-Template-macOS.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "WINDOWS_README.md"
+
+      - name: Create Windows Package
+        run: |
+          zip -r Xidian-LaTeX-Template-Windows.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "Font/*" -x "MacTex_Installation_Settings/*" -x "switch-texlive.sh"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            Xidian-LaTeX-Template-macOS.zip
+            Xidian-LaTeX-Template-Windows.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true

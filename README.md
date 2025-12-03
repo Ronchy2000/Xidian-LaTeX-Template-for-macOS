@@ -19,13 +19,12 @@
 
 ## 📖 概述
 
-本模板专为 **macOS + TeX Live 2025** 环境设计，帮助西电学子高效撰写学位论文。
+本模板专为 **macOS + TeX Live 2025** 环境设计，帮助西电学子高效撰写学位论文。同时，本模板也支持 **Windows** 环境（无需安装额外字体）。
 
 ### ✨ 核心工作流
 
-```
-安装字体 → 配置 MacTeX 2025 → 更新宏包 → 编译论文
-```
+- **macOS**: `安装字体 → 配置 MacTeX 2025 → 更新宏包 → 编译论文`
+- **Windows**: `安装 TeX Live → 更新宏包 → 编译论文`
 
 ### ⚠️ 重要提示
 
@@ -33,7 +32,17 @@
 
 ---
 
-## 🚀 快速开始
+## 💻 Windows 用户
+
+Windows 用户请直接参考专门的指南：
+
+👉 **[Windows 使用指南 / Windows User Guide](./WINDOWS_README.md)**
+
+> Windows 版本不需要安装 `Font` 目录下的字体，也不需要配置 MacTeX。
+
+---
+
+## 🚀 快速开始 (macOS)
 
 ### 步骤 1：安装字体
 
@@ -114,6 +123,34 @@ latexmk -C
 ```
 
 **编译成功后**，会在根目录生成 `main.pdf`。
+
+---
+
+## ⚙️ 论文信息配置
+
+本模板的详细使用说明书为项目根目录下的 `xduts.pdf`。
+
+论文的元数据（如标题、作者、学位类型等）均在 `main.tex` 文件中的 `info` 字段进行配置。请根据实际情况修改以下内容：
+
+```tex
+info = {
+    graduate-type = {博士},              % 毕业类型：博士/硕士
+    degree-type = {学术},                % 学位类型：学术/专业
+    degree = {工学博士},                 % 学位名称
+    title = {自适应学习平台排版流程示例},   % 中文标题
+    title* = {Sample Workflow...},      % 英文标题
+    department = {信息工程学院},          % 学院
+    major = {智能系统与工程},             % 专业
+    major* = {Intelligent Systems...},  % 专业英文
+    submit-date = {2024-9},             % 提交日期
+    author = {西电示例同学},              % 作者中文名
+    author* = {Sample Student},         % 作者英文名
+    supervisor = {示例导师},              % 导师中文名
+    supervisor* = {Sample Advisor},     % 导师英文名
+    student-id = {2024000000},          % 学号
+    % ... 其他配置请参考 main.tex
+}
+```
 
 ---
 

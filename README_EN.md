@@ -18,13 +18,12 @@ This project is based on **[XDUTS](https://github.com/note286/xduts)** (Xidian U
 
 ## 📖 Overview
 
-This template is designed specifically for **macOS + TeX Live 2025** environment, helping Xidian students write their theses efficiently.
+This template is designed specifically for **macOS + TeX Live 2025** environment, helping Xidian students write their theses efficiently. It also supports **Windows** environment (no extra fonts installation required).
 
 ### ✨ Core Workflow
 
-```
-Install Fonts → Configure MacTeX 2025 → Update Packages → Compile Thesis
-```
+- **macOS**: `Install Fonts → Configure MacTeX 2025 → Update Packages → Compile Thesis`
+- **Windows**: `Install TeX Live → Update Packages → Compile Thesis`
 
 ### ⚠️ Important Notice
 
@@ -32,7 +31,17 @@ Skipping any step may result in: misplaced images, PDF box errors, missing packa
 
 ---
 
-## 🚀 Quick Start
+## 💻 Windows Users
+
+For Windows users, please refer to the dedicated guide:
+
+👉 **[Windows User Guide](./WINDOWS_README.md)**
+
+> The Windows version does not require fonts from the `Font` directory, nor does it need MacTeX configuration.
+
+---
+
+## 🚀 Quick Start (macOS)
 
 ### Step 1: Install Fonts
 
@@ -113,6 +122,34 @@ latexmk -C
 ```
 
 **After successful compilation**, `main.pdf` will be generated in the root directory.
+
+---
+
+## ⚙️ Thesis Configuration
+
+The detailed manual for this template is `xduts.pdf` located in the project root directory.
+
+Thesis metadata (such as title, author, degree type, etc.) is configured in the `info` field within the `main.tex` file. Please modify the following content according to your actual situation:
+
+```tex
+info = {
+    graduate-type = {博士},              % Graduate type: PhD/Master
+    degree-type = {学术},                % Degree type: Academic/Professional
+    degree = {工学博士},                 % Degree name
+    title = {自适应学习平台排版流程示例},   % Chinese Title
+    title* = {Sample Workflow...},      % English Title
+    department = {信息工程学院},          % Department
+    major = {智能系统与工程},             % Major
+    major* = {Intelligent Systems...},  % Major (English)
+    submit-date = {2024-9},             % Submission Date
+    author = {西电示例同学},              % Author Name (Chinese)
+    author* = {Sample Student},         % Author Name (English)
+    supervisor = {示例导师},              % Supervisor Name (Chinese)
+    supervisor* = {Sample Advisor},     % Supervisor Name (English)
+    student-id = {2024000000},          % Student ID
+    % ... Refer to main.tex for other configurations
+}
+```
 
 ---
 
