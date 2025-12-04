@@ -72,6 +72,26 @@ jobs:
               --generate-notes
           fi
 
+      - name: Remove Existing Release Assets
+        # 删除已存在的同名附件，避免重复上传失败
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG=${{ github.ref_name }}
+          REPO=${{ github.repository }}
+          for asset in Xidian-LaTeX-Template-macOS.zip Xidian-LaTeX-Template-Windows.zip; do
+            ASSET_ID=$(gh release view "$TAG" --json assets -q ".assets[] | select(.name==\"$asset\").id")
+            if [[ -n "$ASSET_ID" ]]; then
+              echo "Deleting existing asset $asset (id: $ASSET_ID)"
+              gh api \
+                --method DELETE \
+                -H "Accept: application/vnd.github+json" \
+                "/repos/$REPO/releases/assets/$ASSET_ID"
+            else
+              echo "No existing asset named $asset"
+            fi
+          done
+
       - name: Upload Release Assets
         # 使用 gh 命令行工具上传文件，支持覆盖（--clobber），解决 422 错误
         env:
