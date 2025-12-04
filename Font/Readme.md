@@ -2,7 +2,7 @@
 
 [🇨🇳 中文](#macos-下安装-windows-字体) | [🇺🇸 English](#install-windows-fonts-on-macos)
 
-macOS 自带的宋体、黑体等与 Windows 版本在字形和度量上存在差异，直接使用系统字体排版会导致行距、分页和版式不一致，因此需要先安装与 Windows 环境一致的字体文件。
+macOS 自带的宋体、黑体等与 Windows 版本在字形和度量上存在差异，本模板已通过 `Font/` 目录提供与 Windows 一致的字体并在编译时自动加载，**无需额外安装**。如果你希望在系统其他软件（如 Pages、Word）中也使用这些字体，可按以下步骤自愿安装。
 
 ## 安装步骤
 1. 打开 `Font` 目录，双击以下每个字体文件或将它们全部拖入「字体册」(Font Book)：
@@ -22,7 +22,7 @@ macOS 自带的宋体、黑体等与 Windows 版本在字形和度量上存在�
 
 [🇨🇳 中文](#macos-下安装-windows-字体) | [🇺🇸 English](#install-windows-fonts-on-macos)
 
-The built-in Song, Hei, and other fonts on macOS differ from Windows versions in glyph shapes and metrics. Using system fonts directly for typesetting will cause inconsistencies in line spacing, pagination, and layout. Therefore, you need to install font files consistent with the Windows environment first.
+The built-in Song, Hei, and other fonts on macOS differ from Windows versions in glyph shapes and metrics. The template already bundles Windows-compatible fonts inside the `Font/` directory and loads them automatically during compilation, so **no extra installation is required**. Install them only if you also need these fonts in other macOS apps (Pages, Word, etc.).
 
 ## Installation Steps
 1. Open the `Font` directory and double-click each of the following font files or drag them all into Font Book:

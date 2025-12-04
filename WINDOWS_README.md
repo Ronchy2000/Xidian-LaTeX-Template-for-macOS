@@ -2,7 +2,7 @@
 
 [🇨🇳 中文](#windows-使用指南) | [🇺🇸 English](#windows-user-guide)
 
-本模板在 Windows 10/11 下经过测试，可正常编译使用。Windows 用户**不需要**安装 `Font` 目录下的字体文件（模板会自动调用系统自带的中文字体）。
+本模板在 Windows 10/11 下经过测试，可正常编译使用。Windows 版本已打包 `Font/` 目录，模板会自动加载其中的字体文件，无需另外安装。
 
 ---
 
@@ -39,7 +39,7 @@ latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
 
 [🇨🇳 中文](#windows-使用指南) | [🇺🇸 English](#windows-user-guide)
 
-This template has been tested and works correctly on Windows 10/11. Windows users **do NOT** need to install fonts from the `Font` directory (the template automatically uses system-installed Chinese fonts).
+This template has been tested and works correctly on Windows 10/11. The Windows package already includes the `Font/` directory, and the template automatically loads those fonts without any extra installation.
 
 ---
 

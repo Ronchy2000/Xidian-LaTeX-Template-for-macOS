@@ -29,9 +29,9 @@ jobs:
           zip -r Xidian-LaTeX-Template-macOS.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "WINDOWS_README.md" -x "*.zip"
 
       - name: Create Windows Package
-        # 排除 Git文件、Github配置、macOS字体、MacTeX设置脚本、以及之前生成的 macOS zip 包
+        # 排除 Git文件、Github配置、MacTeX设置脚本、以及之前生成的 macOS zip 包
         run: |
-          zip -r Xidian-LaTeX-Template-Windows.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "Font/*" -x "MacTex_Installation_Settings/*" -x "switch-texlive.sh" -x "*.zip"
+          zip -r Xidian-LaTeX-Template-Windows.zip . -x "*.git*" -x ".github/*" -x ".gitignore" -x "MacTex_Installation_Settings/*" -x "switch-texlive.sh" -x "*.zip"
 
       - name: Generate Fixed Release Note
         # 生成固定的说明信息文件
@@ -44,7 +44,7 @@ jobs:
           | 操作系统 / OS | 推荐文件 / Recommended File | 说明 / Note |
           | :--- | :--- | :--- |
           | **macOS** | \`Xidian-LaTeX-Template-macOS.zip\` | ✅ 内含字体 & 配置脚本 (Includes fonts & scripts) |
-          | **Windows** | \`Xidian-LaTeX-Template-Windows.zip\` | 🚀 精简版 (Lite version) |
+          | **Windows** | \`Xidian-LaTeX-Template-Windows.zip\` | ✅ 内含字体 (Includes fonts) |
           
           > ⚠️ **注意 / Warning**: 请勿直接下载 \`Source code\`，除非你熟悉 Git 操作。请下载上方表格中的 \`.zip\` 文件。
           > Please download the \`.zip\` files listed above, NOT the \`Source code\`.
@@ -104,4 +104,3 @@ jobs:
             # 更新 Release 说明
             gh release edit ${{ github.ref_name }} --notes-file full_notes.md
           fi
-

@@ -22,8 +22,8 @@ This template is designed specifically for **macOS + TeX Live 2025** environment
 
 ### ✨ Core Workflow
 
-- **macOS**: `Install Fonts → Configure MacTeX 2025 → Update Packages → Compile Thesis`
-- **Windows**: `Install TeX Live → Update Packages → Compile Thesis`
+- **macOS**: `Extract template (fonts included) → Configure MacTeX 2025 → Update Packages → Compile Thesis`
+- **Windows**: `Extract template (fonts included) → Install TeX Live → Update Packages → Compile Thesis`
 
 ### ⚠️ Important Notice
 
@@ -39,8 +39,8 @@ It is recommended to download the packaged Release version. Choose according to 
 
 | Version | Filename | Description |
 | :--- | :--- | :--- |
-| **macOS** | `Xidian-LaTeX-Template-macOS.zip` | ✅ Includes fonts and MacTeX scripts |
-| **Windows** | `Xidian-LaTeX-Template-Windows.zip` | 🚀 Lite version, excludes macOS-specific files |
+| **macOS** | `Xidian-LaTeX-Template-macOS.zip` | ✅ Includes fonts plus MacTeX helper scripts |
+| **Windows** | `Xidian-LaTeX-Template-Windows.zip` | ✅ Includes fonts (removes macOS-only scripts) |
 
 ---
 
@@ -50,19 +50,19 @@ For Windows users, please refer to the dedicated guide:
 
 👉 **[Windows User Guide](./WINDOWS_README.md)**
 
-> The Windows version does not require fonts from the `Font` directory, nor does it need MacTeX configuration.
+> The Windows package already bundles the `Font/` assets, so you can unzip and compile directly with no extra font installation or MacTeX setup.
 
 ---
 
 ## 🚀 Quick Start (macOS)
 
-### Step 1: Install Fonts
+### Step 1: Fonts (Already Bundled)
 
-macOS system fonts differ from Windows versions, which can cause inconsistent typesetting.
+The template uses `font-type = file` to load Windows-style Song/Hei/Kai fonts directly from the `Font/` directory, so **no manual font installation is required on macOS**.
 
-**Action**: Follow [Font/Readme.md](./Font/Readme.md) to install Windows-style Song/Hei/Kai fonts.
+If you need these fonts at the system level (e.g., for Pages/Word), follow [Font/Readme.md](./Font/Readme.md) for optional installation instructions.
 
-> 💡 Fonts take effect immediately after installation, no system restart required.
+> 💡 The fonts are provided for thesis typesetting tests only—please respect the copyright notice in [Font/Readme.md](./Font/Readme.md).
 
 ---
 
