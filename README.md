@@ -2,7 +2,7 @@
 
 # 西电 LaTeX 模板 macOS 使用指南
 
-[![LaTeX](https://img.shields.io/badge/LaTeX-TeX%20Live%202025-008080.svg)](https://www.tug.org/texlive/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![macOS](https://img.shields.io/badge/macOS-Compatible-success.svg)](https://www.apple.com/macos/)
+[![LaTeX](https://img.shields.io/badge/LaTeX-TeX%20Live%202025-008080.svg)](https://www.tug.org/texlive/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![macOS](https://img.shields.io/badge/macOS-Compatible-success.svg)](https://www.apple.com/macos/) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ronchy2000.Xidian-LaTeX-Template-for-macOS&left_text=Visitors&left_color=orange&right_color=brightgreen)](https://github.com/hehuapei/visitor-badge)
 
 [🇨🇳 中文](./README.md) | [🇺🇸 English](./README_EN.md)
 
@@ -378,4 +378,24 @@ latexmk -xelatex -bibtex -synctex=1 main.tex
 latexmk -c
 ```
 
-**祝各位论文写作顺利！** 🎓
+---
+
+## ⭐ Star History
+
+<a href="https://www.star-history.com/#Ronchy2000/Xidian-LaTeX-Template-for-macOS&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Ronchy2000/Xidian-LaTeX-Template-for-macOS&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Ronchy2000/Xidian-LaTeX-Template-for-macOS&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Ronchy2000/Xidian-LaTeX-Template-for-macOS&type=Date" />
+  </picture>
+</a>
+
+---
+
+<p align="center">
+  <em> ❤️ 感谢您的关注 !</em><br><br>
+</p>
+
+<p align="center">
+  <strong style="font-size:1.25em;">祝各位论文写作顺利！ 🎓</strong>
+</p>
