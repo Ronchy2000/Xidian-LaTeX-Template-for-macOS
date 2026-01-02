@@ -1,7 +1,46 @@
-\begin{tabular}{ll}
-\textbf{符号} & \textbf{含义} \\
-$\bm{s}_k$ & 第 $k$ 次迭代的系统状态占位向量 \\
-$\bm{\theta}$ & 策略参数集合 \\
-$\alpha$ & 指标加权系数 \(0\le\alpha\le1\) \\
-$\eta_k$ & 噪声或扰动项 \\
-\end{tabular}
+%======================符号对照表=======================
+$\mathbb{R}$ & 实数集 \\
+$\mathbb{N}$ & 自然数集 \\
+$\mathbb{N}^+$ & 正整数集 \\
+$\mathbb{C}$ & 复数集 \\
+$\mathbb{R}^n$ & $n$维实向量空间 \\
+$\mathbb{C}^n$ & $n$维复向量空间 \\
+$\mathbb{R}^{m\times n}$ & $m\times n$维实矩阵空间 \\
+$\mathbb{C}^{m\times n}$ & $m\times n$维复矩阵空间 \\
+$\lfloor x\rfloor$ & 不大于实数$x$的最大整数 \\
+$\emptyset$ & 空集\\
+$\mathrm{card}(S)$ & 集合$S$的基数\\
+$a\in S$ & 元素$a$属于集合$S$ \\
+$a\notin S$ & 元素$a$不属于集合$S$ \\
+$S_1\cap S_2$ & 集合$S_1$与集合$S_2$的交 \\
+$S_1\cup S_2$ & 集合$S_1$与集合$S_2$的并 \\
+$S_1\subset S_2$ & 集合$S_2$包含集合$S_1$，两个集合不相等 \\
+$S_1\subseteq S_2$ & 集合$S_2$包含集合$S_1$，两个集合可能相等 \\
+$\mathcal{I}_n$ & $\mathcal{I}_n=\{1,2,\dots,n\}$ \\
+$e$ & 自然常数\\
+$\mathbf{j}$ & 虚数单位 \\
+$\mathrm{Re}(\lambda)$ & 复数$\lambda$的实部 \\
+$\mathrm{Im}(\lambda)$ & 复数$\lambda$的虚部 \\
+$|\lambda|$ & 实数$\lambda$的绝对值或复数$\lambda$的模 \\
+$\mathbf{1}_n$ & 所有元素全是$1$的$n$维列向量 \\
+$\mathbf{0}_n$ & 所有元素全是$0$的$n$维列向量 \\
+$\mathbf{1}$ & 所有元素全是$1$的维数相容的矩阵 \\
+$\mathbf{0}$ & 所有元素全是$0$的维数相容的矩阵 \\
+$\bm{I}_n$ & $n$维单位矩阵 \\
+%$X_{ij}$ & 矩阵$X$的$i$行$j$列处的元素 \\
+$\bm{X}^\top$ & 向量或矩阵$\bm{X}$的转置 \\
+$\bm{X}^*$ & 向量或矩阵$\bm{X}$的共轭转置 \\
+$\bm{X}^{-1}$ & 方阵$\bm{X}$的逆矩阵 \\
+$\|\bm{X}\|_2$ & 向量$\bm{X}$的欧几里得范数或矩阵$\bm{X}$的谱范数 \\
+$\bm{X}>\bm{Y}$ & $\bm{X}$与$\bm{Y}$都是Hermitian矩阵，且$\bm{X}-\bm{Y}$为正定矩阵 \\
+$\bm{X}\geq \bm{Y}$ & $\bm{X}$与$\bm{Y}$都是Hermitian矩阵，且$\bm{X}-\bm{Y}$为半正定矩阵 \\
+$\varrho(\bm{X})$ & 方阵$\bm{X}$的谱半径\\
+$\lambda_{\mathrm{max}}(\bm{X})$ & 所有特征值都是实数的矩阵$\bm{X}$的最大特征值 \\
+$\sigma_{\mathrm{max}}(\bm{X})$ & 矩阵$\bm{X}$的最大奇异值 \\
+$\mathrm{det}(\bm{X})$ & 方阵$\bm{X}$的行列式 \\
+$\mathrm{rank}(\bm{X})$ & 矩阵$\bm{X}$的秩 \\
+$\mathrm{diag}\{a_1,a_2,\dots,a_n\}$ & 以$a_1,a_2,\dots,a_n$为对角元素的$n$阶对角矩阵 \\
+$\mathcal{L}_2[0,\infty)$ & $[0,\infty)$上平方可积的向量函数空间 \\
+$\ell_2[0,\infty)$ & $[0,\infty)$上平方可和的向量序列空间\\
+$\|\bm{T}(s)\|_\infty$ & 连续时间系统传递函数矩阵$\bm{T}(s)$的$H_\infty$范数 \\
+$\|\bm{T}(z)\|_\infty$ & 离散时间系统传递函数矩阵$\bm{T}(z)$的$H_\infty$范数 \\
