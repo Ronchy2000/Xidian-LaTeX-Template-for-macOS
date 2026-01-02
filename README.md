@@ -13,6 +13,10 @@
 - 支持：博士学位论文、学术型硕士、专业型硕士（含工程硕士等）；本科版未验证，如需使用请自行对照学校规范校对。
 - 完整撰写规范与样例：请参阅根目录 `xduts.pdf`，内含章节结构、格式要求和排版示例。
 
+## ⚠️ 版本更新提示（v1.4）
+
+- 修复符号对照表/缩略语对照表格式问题：删除 `chapters/los.tex` 与 `chapters/loa.tex` 中的 `tabular` 包裹，直接保留每行 `符号 & 含义 \\` 的条目，由模板统一排版。
+
 
 ## 🙏 致谢
 
@@ -178,7 +182,7 @@ info = {
 
 ### 方式 2：使用 TeXstudio
 
-如果你习惯使用图形界面编辑器，可以配置 TeXstudio：
+如果你习惯使用图形界面编辑器，可以配置 TeXstudio，让“编译”按钮直接调用 latexmk：
 
 #### 配置步骤
 
@@ -186,10 +190,10 @@ info = {
 
 | 选项 | 配置值 |
 |------|--------|
-| Default Compiler | `XeLaTeX` |
-| Default Bibliography Tool | `BibTeX` |
-| PDF Viewer | `Internal PDF Viewer (Embedded)` |
-| Quick Build | `txs:///latexmk` |
+| 默认编译器 | `txs:///latexmk` |
+| 默认文献工具 | `BibTeX` |
+| PDF 查看器 | `Internal PDF Viewer (Embedded)` |
+| 构建并查看 | `txs:///latexmk | txs:///view` |
 
 在 `Commands → Latexmk` 中填入：
 ```
@@ -208,7 +212,7 @@ latexmk -C %.tex        # Clean Full
 
 确保 TeXstudio 顶部已锁定 `main.tex` 为 Root 文档。
 
-**配置完成后**，点击 "Build & View" 即可编译并预览论文。
+**配置完成后**，点击工具栏的“编译”或 “构建并查看（Build & View）”，都会调用 latexmk 编译并预览论文。
 
 ---
 

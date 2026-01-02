@@ -176,10 +176,10 @@ Open `Options → Configure TeXstudio → Build` and set:
 
 | Option | Value |
 |--------|-------|
-| Default Compiler | `XeLaTeX` |
+| Default Compiler | `txs:///latexmk` |
 | Default Bibliography Tool | `BibTeX` |
 | PDF Viewer | `Internal PDF Viewer (Embedded)` |
-| Quick Build | `txs:///latexmk` |
+| Build & View | `txs:///latexmk | txs:///view` |
 
 In `Commands → Latexmk`, enter:
 ```
@@ -198,7 +198,7 @@ latexmk -C %.tex        # Clean Full
 
 Ensure `main.tex` is locked as the Root document in TeXstudio toolbar.
 
-**After configuration**, click "Build & View" to compile and preview your thesis.
+**After configuration**, click "Compile" or "Build & View" to run latexmk and preview your thesis.
 
 ---
 
