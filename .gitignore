@@ -26,3 +26,5 @@ build/
 test/
 
 # Keep documentation PDFs (xduts.pdf, sample outputs) tracked, so no ignore rules.
+
+main.pdf
