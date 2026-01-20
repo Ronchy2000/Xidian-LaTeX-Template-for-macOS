@@ -117,27 +117,6 @@ sudo tlmgr update --self --all
 
 ---
 
-## 📝 Compiling Your Thesis
-
-### Method 1: Command Line (Recommended)
-
-Execute in project root directory:
-
-```bash
-# Compile thesis (XeLaTeX + BibTeX)
-latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
-
-# Clean temporary files (keep .bbl)
-latexmk -c
-
-# Full clean (including .bbl)
-latexmk -C
-```
-
-**After successful compilation**, `main.pdf` will be generated in the root directory.
-
----
-
 ## ⚙️ Thesis Configuration
 
 The detailed manual for this template is `xduts.pdf` located in the project root directory.
@@ -166,6 +145,27 @@ info = {
 
 ---
 
+## 📝 Compiling Your Thesis
+
+### Method 1: Command Line (Recommended)
+
+Execute in project root directory:
+
+```bash
+# Compile thesis (XeLaTeX + BibTeX)
+latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
+
+# Clean temporary files (keep .bbl)
+latexmk -c
+
+# Full clean (including .bbl)
+latexmk -C
+```
+
+**After successful compilation**, `main.pdf` will be generated in the root directory.
+
+---
+
 ### Method 2: Using TeXstudio
 
 If you prefer a GUI editor, you can configure TeXstudio:
@@ -181,10 +181,14 @@ Open `Options → Configure TeXstudio → Build` and set:
 | PDF Viewer | `Internal PDF Viewer (Embedded)` |
 | Build & View | `txs:///latexmk | txs:///view` |
 
+![TeXstudio Build Settings](docs/images/texstudio-build.png)
+
 In `Commands → Latexmk`, enter:
 ```
 latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode %.tex
 ```
+
+![TeXstudio Latexmk Command](docs/images/texstudio-commands-latexmk.png)
 
 #### Add Clean Commands (Optional)
 

@@ -131,27 +131,6 @@ sudo tlmgr update --self --all
 
 ---
 
-## 📝 编译论文
-
-### 方式 1：命令行编译（推荐）
-
-在项目根目录执行：
-
-```bash
-# 编译论文（XeLaTeX + BibTeX）
-latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
-
-# 清理临时文件（保留 .bbl）
-latexmk -c
-
-# 完全清理（包括 .bbl）
-latexmk -C
-```
-
-**编译成功后**，会在根目录生成 `main.pdf`。
-
----
-
 ## ⚙️ 论文信息配置
 
 本模板的详细使用说明书为项目根目录下的 `xduts.pdf`。
@@ -180,6 +159,27 @@ info = {
 
 ---
 
+## 📝 编译论文
+
+### 方式 1：命令行编译（推荐）
+
+在项目根目录执行：
+
+```bash
+# 编译论文（XeLaTeX + BibTeX）
+latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
+
+# 清理临时文件（保留 .bbl）
+latexmk -c
+
+# 完全清理（包括 .bbl）
+latexmk -C
+```
+
+**编译成功后**，会在根目录生成 `main.pdf`。
+
+---
+
 ### 方式 2：使用 TeXstudio
 
 如果你习惯使用图形界面编辑器，可以配置 TeXstudio，让“编译”按钮直接调用 latexmk：
@@ -193,12 +193,16 @@ info = {
 | 默认编译器 | `txs:///latexmk` |
 | 默认文献工具 | `BibTeX` |
 | PDF 查看器 | `Internal PDF Viewer (Embedded)` |
-| 构建并查看 | `txs:///latexmk | txs:///view` |
+| 构建并查看 | `txs:///latexmk \| txs:///view` |
 
+![TeXstudio Build 设置](docs/images/texstudio-build.png)
 在 `Commands → Latexmk` 中填入：
+
 ```
 latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode %.tex
 ```
+
+![TeXstudio Latexmk 命令](docs/images/texstudio-commands-latexmk.png)
 
 #### 添加清理命令（可选）
 
