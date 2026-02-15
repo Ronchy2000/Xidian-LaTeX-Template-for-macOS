@@ -30,7 +30,25 @@ latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
 ```
 
 #### 方式二：使用 TeXstudio / VS Code
-- **TeXstudio**: 确保编译器设置为 `XeLaTeX`。
+- **TeXstudio**: 如果你习惯使用图形界面编辑器，可以配置 TeXstudio，让“编译”按钮直接调用 `latexmk`.
+打开 `Options → Configure TeXstudio → Build`，设置：
+
+| 选项 | 配置值 |
+|------|--------|
+| 默认编译器 | `txs:///latexmk` |
+| 默认文献工具 | `BibTeX` |
+| PDF 查看器 | `Internal PDF Viewer (Embedded)` |
+| 构建并查看 | `txs:///latexmk \| txs:///view` |
+
+![TeXstudio Build 设置](docs/images/texstudio-build.png)
+在 `Commands → Latexmk` 中填入：
+
+```
+latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode %.tex
+```
+
+![TeXstudio Latexmk 命令](docs/images/texstudio-commands-latexmk.png)
+
 - **VS Code**: 安装 `LaTeX Workshop` 插件，并使用 `Recipe: latexmk (xelatex)` 进行编译。
 
 ---
@@ -67,5 +85,24 @@ latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode main.tex
 ```
 
 #### Method 2: Using TeXstudio / VS Code
-- **TeXstudio**: Ensure the compiler is set to `XeLaTeX`.
+- **TeXstudio**: If you prefer a GUI editor, you can configure TeXstudio to use `latexmk` directly with the "Build" button.
+Open `Options → Configure TeXstudio → Build` and set:
+
+| Option | Configuration |
+|--------|---------------|
+| Default Compiler | `txs:///latexmk` |
+| Default Bibliography Tool | `BibTeX` |
+| PDF Viewer | `Internal PDF Viewer (Embedded)` |
+| Build & View | `txs:///latexmk \| txs:///view` |
+
+![TeXstudio Build Settings](docs/images/texstudio-build.png)
+
+In `Commands → Latexmk`, enter:
+
+```
+latexmk -xelatex -bibtex -synctex=1 -interaction=nonstopmode %.tex
+```
+
+![TeXstudio Latexmk Command](docs/images/texstudio-commands-latexmk.png)
+
 - **VS Code**: Install the `LaTeX Workshop` extension and use the `Recipe: latexmk (xelatex)` to compile.
